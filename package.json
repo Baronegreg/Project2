@@ -1,0 +1,30 @@
+{
+  "name": "dog_shelter_app",
+  "version": "1.0.0",
+  "description": "Building a dog shelter app that connects those wanting to adopt a friend with their new pet, also attempting to alleviate some of the heartburns someone might feel when wanting to adopt",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baronegreg/Project2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Baronegreg/Project2/issues"
+  },
+  "homepage": "https://github.com/Baronegreg/Project2#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "lodash": "^4.17.4",
+    "method-override": "^2.3.8",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
+    "pet-finder-api": "^1.0.1",
+    "sequelize": "^3.30.4"
+  }
+}
