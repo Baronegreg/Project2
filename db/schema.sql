@@ -1,0 +1,21 @@
+
+CREATE DATABASE pets_db;
+
+
+USE pets_db;
+
+
+CREATE TABLE pets
+(
+	id int (11) NOT NULL AUTO_INCREMENT,
+	type VARCHAR(255) NOT NULL,
+	breed VARCHAR(255) NOT NULL,
+	gender VARCHAR(255) NOT NULL,
+	age VARCHAR(255) NOT NULL,
+	weight VARCHAR (255) NOT NULL,
+	description VARCHAR (255) NOT NULL,
+	date TIMESTAMP NOT NULL,
+	
+	PRIMARY KEY (id)
+
+);
