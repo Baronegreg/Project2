@@ -60,8 +60,5 @@ module.exports = function(sequelize, DataTypes) {
 
 
     });
-    return burger;
+    return pets;
 }
-
-INSERT INTO pets(pet_name, sex, age, size, animal, contact, breeds, media, description)
- blahballkdjalskfja;lkjs   
