@@ -1,0 +1,77 @@
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* cover */
+
+#cover {
+    background: #222 url('') center center no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+h2 #adoptHeading {
+    color: #33ccff;
+}
+
+.carousel-caption {
+    margin-bottom: 33rem;
+
+}
+
+#cover-caption {
+    width: 100%;
+}
+
+.section-content {
+    padding: 5rem 0;
+}
+
+.card-block {
+    text-align: center;
+}
+
+#about {
+    background: url('img/homeless.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.about-text {
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 1.875rem;
+}
+.col-sm-2 {
+    margin-top: 5px;
+    margin-left: 2rem;
+}
+.col-sm-3 {
+    margin-top: 25px;
+}
+.col-sm-5 {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.col-sm-6 {
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+#footer-main {
+    background: #222;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2.5rem 0;
+}
