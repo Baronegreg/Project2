@@ -1,0 +1,64 @@
+  
+   <section id="cover">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h1 class="display-3"> Welcome to RBC <br> Adoption Center</h1>
+                    <h2 id="adoptHeading">Keep Pets Happy and Healthy! Adopt Today!</h2><br>        
+                    
+                    <br>
+
+                     <h5 id="chooseHeading">Choose from our local facility or make a search using our new pet adoption system locator.</h5><br>
+                    
+                    <a href="#nav-main" class="btn btn-secondary-outline btn-sm" role="button">&darr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <h2>{{banner}} </h2>
+  <!--   <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
+        <a class="navbar-brand" href="#"></a>
+        <div class="form-inline pull-xs-right">
+            <input class="form-control" type="text" placeholder="Type">
+            <input class="form-control" type="text" placeholder="Breed">
+            <input class="form-control" type="text" placeholder="Gender">
+            <input class="form-control" type="text" placeholder="Location">
+            <button class="btn btn-success-outline" type="submit">Pet locator</button>
+        </form>
+        </div>
+    </nav> -->
+{{#each animal}}
+<div class="row">
+    <div class="col-sm-2">
+         <center><h6 class="title">Meet {{name}}</h6></center>
+         <img id="poodle" class="img-top" src="{{media}}" alt="poodle">
+    </div>
+    <div id="petInfo">
+          <div class="col-sm-3">
+               <table border="1" width="100%">
+                   <tr>
+                        <td class="colOne" id="Type">Type:</td><td class="colTwo">{{animal}}</td>
+                   </tr>
+                        <td class="colOne" id="Name">Name:</td><td class="colTwo">{{name}}</td>
+                   <tr>
+                        <td class="colOne" id="Breed">Breed:</td><td class="colTwo">{{breeds}}</td>
+                   </tr>
+                        <td class="colOne" id="Age">Age:</td><td class="colTwo">{{age}}</td>
+                   </tr>
+                   <tr>
+                        <td class="colOne" id="Gender">Gender:</td><td class="colTwo">{{sex}}</td>
+                </table>
+            </div>
+         </div>
+         <div class="col-sm-5">
+                <h4 class="title">Description</h4>
+                <p class="text">{{description}}</p>
+         </div>
+    </div>
+</div>
+{{/each}}
+</div>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+ 
