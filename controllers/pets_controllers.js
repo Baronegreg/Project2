@@ -138,6 +138,133 @@ router.get("/pets_maintenance", function(request, response) {
 });
 
 
+////*********************************************************************************************************************8
+
+
+router.get("/cat", function(req, res) {
+
+petfinder.findPet("08902", { animal: "cat" }, function(err, results) {
+
+var animal = [];
+var listCount = results.length
+for(i=0;i<listCount;i++) {
+  var Animals = {
+    name: results[i].name,
+    media: results[i].media.photos[1].pn,
+    animal: results[i].animal,
+    breeds: results[i].breeds,
+    sex: results[i].sex,
+    description: results[i].description
+  }
+  animal.push(Animals);
+}
+
+res.render("petdisplay", {
+  animal: animal, 
+  banner: "Other Shelters"
+});
+});
+});
+
+
+
+router.get("/barnyard", function(req, res) {
+
+petfinder.findPet("08902", { animal: "barnyard" }, function(err, results) {
+
+var animal = [];
+var listCount = results.length
+for(i=0;i<listCount;i++) {
+  var Animals = {
+    name: results[i].name,
+    media: results[i].media.photos[1].pn,
+    animal: results[i].animal,
+    breeds: results[i].breeds,
+    sex: results[i].sex,
+    description: results[i].description
+  }
+  animal.push(Animals);
+}
+
+res.render("petdisplay", {
+  animal: animal, 
+  banner: "Other Shelters"
+});
+});
+});
+
+
+
+router.get("/bird", function(req, res) {
+
+petfinder.findPet("08902", { animal: "bird" }, function(err, results) {
+
+var animal = [];
+var listCount = results.length
+for(i=0;i<listCount;i++) {
+  var Animals = {
+    name: results[i].name,
+    media: results[i].media.photos[1].pn,
+    animal: results[i].animal,
+    breeds: results[i].breeds,
+    sex: results[i].sex,
+    description: results[i].description
+  }
+  animal.push(Animals);
+}
+
+res.render("petdisplay", {
+  animal: animal, 
+  banner: "Other Shelters"
+});
+});
+});
+
+
+
+router.get("/horses", function(req, res) {
+
+petfinder.findPet("08902", { animal: "horse" }, function(err, results) {
+
+var animal = [];
+var listCount = results.length
+for(i=0;i<listCount;i++) {
+  var Animals = {
+    name: results[i].name,
+    media: results[i].media.photos[1].pn,
+    animal: results[i].animal,
+    breeds: results[i].breeds,
+    sex: results[i].sex,
+    description: results[i].description
+  }
+  animal.push(Animals);
+}
+
+res.render("petdisplay", {
+  animal: animal, 
+  banner: "Other Shelters"
+});
+});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //////exports router//////
 module.exports = router;

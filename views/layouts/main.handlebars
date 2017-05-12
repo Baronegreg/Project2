@@ -35,40 +35,63 @@
     </section>
     <div class="homeNav">
         <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
-        <a class="navbar-brand" href="#"></a>
-        <ul class="nav navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="navbar-brand" href="#"></a>
+            <ul class="nav navbar-nav">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
-            <li class="nav-item">
+
+                <li class="nav-item">
                     <button type="button" class="btn btn-primary" id="b1"><a href="/rbc_shelter">Pets up for Adoption</a></button>
                 </li>
-            <li class="nav-item">
 
+<!-- 
+                <li class="nav-item">
                     <button type="button" class="btn btn-info"><a href="/other_shelters">Other Shelters</a></button>
                 </li>
-            <li class="nav-item">
-            <div class="dropdown">
-              <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Maintainence
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="/addpet">Add a Pet</a></li>
-                <li><a href="/pets_maintenance">Update Pets available</a></li>
-                <li><a href="/dogwalkerform">Add a Dog Walker</a></li>
-                <li><a href="/walker">Deactive Dogwalker</a></li>
-                <li><a href="pastworker">Reactive Dogwalker</a></li>
-                </li>
-              </ul>
-            </div>
-                
-        </ul>
-    </nav>
+                 -->
+
+                <li class="nav-item">
+                     <div class="dropdown">
+                        <button class="btn btn-info" type="button" data-toggle="dropdown">Other Shelters
+                         <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/other_shelters">Dogs</a></li>
+                            <li><a href="/cat">Cats</a></li>
+                            <li><a href="/barnyard">Barnyard</a></li>
+                            <li><a href="/bird">Birds</a></li>
+                            <li><a href="/horses">Horses</a></li>
+                        </ul>
+                    </div>
+                </li>  
+
+
+
+            
+                <li class="nav-item">
+                     <div class="dropdown">
+                        <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Maintainence
+                         <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/addpet">Add a Pet</a></li>
+                            <li><a href="/pets_maintenance">Update Pets available</a></li>
+                            <li><a href="/dogwalkerform">Add a Dog Walker</a></li>
+                            <li><a href="/walker">Deactive Dogwalker</a></li>
+                            <li><a href="pastworker">Reactive Dogwalker</a></li>
+                        </ul>
+                    </div>
+                </li>        
+            </ul>
+        </nav>
     </div>
     
     <h2>{{banner}} </h2>
