@@ -5,6 +5,7 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
+app.use("/cssfiles", express.static(__dirname + "/public"));
 
 var PORT = process.env.PORT || 8080;
 

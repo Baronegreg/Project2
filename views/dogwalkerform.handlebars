@@ -1,27 +1,21 @@
-<h1> SIGN UP A NEW DOG WALKER <h1>
-
 
 
 <form id="addwalker" class="create-update-form" action="/" method="POST">
 <div class="form-group">
-<label for="newwalker">ADD A WALKER!</label>
+<label for="newwalker">What is your name?</label>
 <input type="text" name="newwalker" id="newwalkername"> <br>
 
-<label for="starttime">What time can you start walking</label>
+<label for="starttime">What time can you start?</label>
 <input type="number" name="start" id="newwalkerstart" min="00" max="24"> <br>
 
-<label for="endtime">What time will you need to stop walking</label>
+<label for="endtime">Til what time?</label>
 <input type="number" name="endtime" id="newwalkerendtime" min="00" max="24"> <br>
 
 
-<label for="small">Can you Walk Small Dogs</label>
-<input type="checkbox" name="small" id="newwalkersmall" value="true"><br>
-
-<label for="medium">Can you Walk Medium Dogs</label>
-<input type="checkbox" name="medium" id="newwalkermedium" value="true"><br>
-
-<label for="large">Can you Walk Large Dogs</label>
-<input type="checkbox" name="large" id="newwalkerlarge" value="true"><br>
+<label for="size">What is the largest size dog you're comfortable walking?</label><br>
+  <input type="radio" name="size" value="s"> Small
+  <input type="radio" name="size" value="m"> Medium
+  <input type="radio" name="size" value="l"> large<br>
 
 <label for="email">Please give your email address</label>
 <input type="email" name="email" id="newwalkeremail"><br>

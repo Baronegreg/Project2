@@ -1,11 +1,12 @@
-CREATE DATABASE IF NOT EXISTS pets;
-USE pets;
+--Don't need this sequelize builds db if not already there 
+-- CREATE DATABASE IF NOT EXISTS adoptions_;
+-- USE pets;
 
 
 # Create the burgers table
-CREATE TABLE pets (
+CREATE TABLE adoptablepets (
 id int NOT NULL AUTO_INCREMENT,
-pet_name varchar(255) NOT NULL,
+name varchar(255) NOT NULL,
 sex enum('M','F') NOT NULL,
 age integer NOT NULL,
 size enum("small", "medium", "large") NOT NULL,

@@ -10,68 +10,104 @@ router.get("/", function(request, response) {
   db.adoptablePets.findAll({}).then(function(result){
 
     var adoptable = {
-      adoptablePets: result
+      adoptablePets: result,
+      banner: "CURRENT LIST OF PETS UP FOR ADOPTION AT RBC"
     };
     response.render("index", adoptable);
   });
   
 });
 //////////////////////////////////////////////////////////////////////////////////////////
+router.get("/home", function(requeset, response){
+
+  response.render("home");
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
 router.get("/local", function(req, res) {
 
 
-db.adoptablePets.findAll({}).then(function(result){
+db.adoptablePets.findAll({
+
+  where: {
+    adopted: false
+  }
+}).then(function(result){
 
 
       var adoptable = result;
 
 res.render("petdisplay.handlebars", {
   animal: adoptable,
-  banner: "OUR PETS"
+  banner: "OUR PETS",
+  mylink: "/outside",
+  words: "Not finding the pet you want please click here and we'll show you some pets available in the area!" 
 });
 
   });
-
-
-    // var petlist = {
-    //   adoptablePets: result,
-    //   banner: "RBC Pet Shelter"
-    // };
-
-// res.render("petdisplay.handlebars");
-    // response.render("index", adoptable);
-
- // res.render("petdisplay.handlebars", {
-
- //    animal: petlist,
- //    banner: "RBC Pet Shelter"
- //  });
-
-
-  // });
-
-
- 
-
-
-
 });
+////////////////////////////////////////////////////////////////////////////////////////  
+router.get("/about", function(request, response){
+
+  response.render('about');
+})
+////////////////////////////////////////////////////////////////////////////////////////
+router.get("/contact", function(request, response){
+
+  response.render('contacts');
+
+})
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 
 router.get("/outside", function(req, res) {
 
 
-db.adoptablePets.findAll({}).then(function(result){
+// db.adoptablePets.findAll({}).then(function(result){
+//       var adoptable = result;
+// res.render("petdisplay.handlebars", {
+//   animal: adoptable,
+//   banner: "OTHER SHELTERS"
+
+// });
+//   });
 
 
-      var adoptable = result;
+var petfinder = require('pet-finder-api')('7810ae652b6934051e946af7af8cd39d', 'bfbcd5a247aa9c333a7b4b93e9ce395a');
+// animal will need to be changed to request.body.animal to search for the right kind of pet
+// should this be in the models folder? 
+// should setup form with request.body.zipcode and request.body.animal to pass in the values for the search or
+// just the pet and hardcode in the zip for the shelter
+petfinder.findPet("08902", { animal: "dog" }, function(err, results) {
+  
+  // console.log(animal)
+
+//console.log(animal[1].media.photos[1].pn);
+var animal = [];
+var listCount = results.length
+for(i=0;i<listCount;i++) {
+  var Animals = {
+    name: results[i].name,
+    media: results[i].media.photos[1].pn,
+    animal: results[i].animal,
+    breeds: results[i].breeds,
+    sex: results[i].sex,
+    description: results[i].description
+  }
+  animal.push(Animals);
+}
 
 res.render("petdisplay.handlebars", {
-  animal: adoptable,
-  banner: "OTHER SHELTERS"
+  animal: animal, 
+  banner: "Other Shelters"
+    
+
 });
 
-  });
+
+});
+
 
 
 
@@ -82,12 +118,35 @@ res.render("petdisplay.handlebars", {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 router.get("/walker", function(request, response){
-    db.dogWalker.findAll({}).then(function(result){
+    db.dogWalker.findAll({
+      where: {
+        workingCurrently: true
+      }
+    }).then(function(result){
 
     var walkers = {
-      dogWalker: result
+      dogWalker: result,
+      banner: "CURRENT LIST OF DOG WALKERS"
     };
     response.render("walker", walkers);
+  });
+
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+router.get("/pastworker", function(request, response){
+    db.dogWalker.findAll({
+      where: {
+        workingCurrently: false
+      }
+    }).then(function(result){
+
+    var walkers = {
+      dogWalker: result,
+      banner: "LIST OF INACTIVE DOG WALKERS"
+    };
+    response.render("pastdogwalkers", walkers);
   });
 
 });
@@ -95,15 +154,19 @@ router.get("/walker", function(request, response){
 /////////////////////////////////////////////////////////////////////////////////////////////  
 
 router.get("/dogwalkerform", function(request, response){
+var display = {
+  banner: "ADD A DOG WALKER"
+};
 
-
-  response.render("dogwalkerform");
+  response.render("dogwalkerform", display);
 })  
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 router.get("/addpet", function(request, response){
-
-  response.render("addpet");
+var display = {
+  banner: "ADD A NEW PET THAT IS UP FOR ADOPTION"
+};
+  response.render("addpet", display);
 })  
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,8 +180,6 @@ router.get("/assistance", function(request, response){
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 router.post('/', function(request, response){
-
-
 
 db.dogWalker.create({
     name: request.body.newwalker,
@@ -183,7 +244,7 @@ response.redirect("walker")
 
 })
 
-///////////////////////////////////////this is not working for getting rid of pets//////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 router.put("/", function(request, response){
 
@@ -202,8 +263,75 @@ db.adoptablePets.update({
 response.redirect("/")
 
 })
-
-
 })
+
+
+////////////////////////////////////////////////////////
+
+
+
+router.get("/hi", function(request, response){
+  console.log('hit hi route');
+
+  var sizeArray = [];
+
+  if(request.query.size === "l"){
+    sizeArray.push("l");
+  };
+  
+  if(request.query.size === "m"){
+    sizeArray.push("l");
+    sizeArray.push("m");
+  };
+  
+  if(request.query.size === "s"){
+    sizeArray.push("s");
+    sizeArray.push("m");
+    sizeArray.push("l");
+  };
+console.log(sizeArray);
+
+  
+
+    db.dogWalker.findAll({
+      where: {
+        workingCurrently: true, 
+        start: {
+          $lte: request.query.time
+        },
+        endTime: {
+          $gte: request.query.time
+        },
+          largestDogWillingToWalk: {
+          $in: sizeArray
+        }
+        }
+        
+      
+    }).then(function(result){
+
+    var walkers = {
+      dogWalker: result,
+      banner: "CURRENT LIST OF DOG WALKERS AVAILABLE"
+    };
+
+response.render("availwalker", walkers);
+     });
+
+});
+
+
+
+
+
+// router.get('/availwalker', function(request, response){
+
+
+
+
+// })
+
+
+
 
 module.exports = router;

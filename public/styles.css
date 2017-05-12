@@ -72,6 +72,40 @@ h2 #adoptHeading {
 #footer-main {
     background: #222;
     color: white;
-    font-size: 0.8rem;
+    font-size: 1.7rem;
     padding: 2.5rem 0;
 }
+
+/*Dog Walker Pic
+===================================================================================*/
+.dogWalkerPic{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+img {
+    height:20%; 
+   width: 39%;
+}
+
+#logo{
+    width: 10%;
+}
+/*=====================================================================================*/
+/*Nav Bar
+=======================================================================================*/
+.nav{
+    font-size: 20px;
+    margin-top: 10px; 
+
+}
+.homeNav{
+    display: flex;
+    justify-content: center;
+}
+#b1{
+    margin-left: 40px; 
+}
+/*======================================================================================*/

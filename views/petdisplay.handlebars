@@ -1,22 +1,4 @@
-  
-   <section id="cover">
-        <div id="cover-caption">
-            <div class="container">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <h1 class="display-3"> Welcome to RBC <br> Adoption Center</h1>
-                    <h2 id="adoptHeading">Keep Pets Happy and Healthy! Adopt Today!</h2><br>        
-                    
-                    <br>
 
-                     <h5 id="chooseHeading">Choose from our local facility or make a search using our new pet adoption system locator.</h5><br>
-                    
-                    <a href="#nav-main" class="btn btn-secondary-outline btn-sm" role="button">&darr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <h2>{{banner}} </h2>
   <!--   <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
         <a class="navbar-brand" href="#"></a>
         <div class="form-inline pull-xs-right">
@@ -29,10 +11,12 @@
         </div>
     </nav> -->
 {{#each animal}}
+
+
 <div class="row">
     <div class="col-sm-2">
          <center><h6 class="title">Meet {{name}}</h6></center>
-         <img id="poodle" class="img-top" src="{{media}}" alt="poodle">
+         <img id="poodle" class="img-top" src="{{media}}"" alt="poodle">
     </div>
     <div id="petInfo">
           <div class="col-sm-3">
@@ -57,8 +41,18 @@
          </div>
     </div>
 </div>
+<br>
+
+
 {{/each}}
 </div>
+<div>
+<nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
+<div>
+   
+        <a class="nav-link" href={{mylink}}>{{words}}<span class="sr-only">(current)</span></a>
 
+</div>
+</nav>
+</div>
     <!-- jQuery first, then Bootstrap JS. -->
- 

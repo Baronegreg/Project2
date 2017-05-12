@@ -4,11 +4,17 @@
 
 
 
-<form id="updateWalker" class="create-update-form" action="/{{this.id}}?_method=PUT" method="POST">
-<label for="name">Name:</label><br>
-<input type="text" name="name" id="name"> <br>
+<form action="/hi">
+<!-- <label for="name">Name:</label><br> -->
+<!-- <input type="text" name="name" id="name"> <br> -->
 
 <label for="dogwalkingtime">What time(Military Time) do you need a walker?</label><br>
-<input type="number" name="start" id="newwalkerstart" min="00" max="24"> <br>
+<input type="number" name="time" id="newwalkerstart" min="00" max="24"> <br>
+<!-- <label for="size">What size is the animal?</label><br> -->
+<label for="size">What size is the animal?</label><br>
+  <input type="radio" name="size" value="s"> Small<br>
+  <input type="radio" name="size" value="m"> Medium<br>
+  <input type="radio" name="size" value="l"> large<br>
+<br>
 <input type="submit" name="submit" id="submit" class="btn-primary btn" value="Click Here to Find your Dog Walker">
 </form>

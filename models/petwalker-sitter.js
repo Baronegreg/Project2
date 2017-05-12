@@ -21,18 +21,19 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        large: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
-        medium: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
-        small: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
+        largestDogWillingToWalk: {
+            type: DataTypes.ENUM,
+            values: ["s", "m", "l"],
+            defaultValue: "s"
+        },  
+        // medium: {
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: false
+        // },
+        // small: {
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: false
+        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,

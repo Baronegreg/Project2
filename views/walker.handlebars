@@ -1,22 +1,18 @@
-<h2> dogWalkers </h2>
-<div>
-<ul> 
+
 {{#each dogWalker}}
-{{#if this.workingCurrently}}
 
 
-<li> 
+
+<div> 
 
 <form id="updateWalker" class="create-update-form" action="/{{this.id}}?_method=PUT" method="POST">
-{{this.id}}. {{this.name}}  (L- {{this.large}}) (M- {{this.medium}}) (S- {{this.small}})  
+{{this.id}}. {{this.name}} - Willing to walk up to {{this.largestDogWillingToWalk}} dogs.
 <input type="hidden" name="workingCurrently" value="false">
 <input type="submit" name="submit" id="submit" class="btn-primary btn" value="Take {{this.name}} off our current work schedule">
 </form>
 
 
-</li>		
+<div>		
 
-{{/if}}
+<br>
 {{/each}}
-</ul>
-</div>
