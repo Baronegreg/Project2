@@ -14,10 +14,36 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "vsg8zvm1zs05h4j1 ",
+    "password": "dcx7gnclgiq5jyvm",
+    "database": "ae64kxsp8esp3677",
+    "host": "wvulqmhjj9tbtc1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
+
+
+// {
+//   "development": {
+//     "username": "root",
+//     "password": "Buddy#13",
+//     "database": "adoptions_db",
+//     "host": "127.0.0.1",
+//     "dialect": "mysql"
+//   },
+//   "test": {
+//     "username": "root",
+//     "password": null,
+//     "database": "database_test",
+//     "host": "127.0.0.1",
+//     "dialect": "mysql"
+//   },
+//   "production": {
+//     "username": "root",
+//     "password": null,
+//     "database": "database_production",
+//     "host": "127.0.0.1",
+//     "dialect": "mysql"
+//   }
+// }
+
