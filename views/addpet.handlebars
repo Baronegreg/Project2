@@ -1,4 +1,4 @@
-
+ <!--  
 <form id="addpet" class="create-update-form" action="/addpet" method="POST">
 <div class="form-group">
 <label for="newpet">What is the animals name?</label><br>
@@ -31,6 +31,42 @@
 <input type="text" name="description" id="description"><br>
 <br>
 <button type="sumbit" name="submit" id="submit" class="btn-primary btn">SUBMIT</button>
+</div>
+</form> -->
+
+
+<form id="addpet" class="create-update-form" action="/addpet" method="POST">
+<div class="form-group">
+<label for="newpet">What is the animals name?</label><br>
+<input type="text" name="newpet" id="newpet" required pattern="[a-zA-Z]{2,15}" placeholder="BO" > <br>
+<br>
+<label for="gender">What gender is the animal?</label><br>
+  <input id="gender" type="radio" name="gender" value="M" required> Male<br>
+  <input id="gender" type="radio" name="gender" value="F" required> Female<br>
+<br>
+<label for="age">Please select the animals age:</label><br>
+<input type="number" name="age" id="age" min="00" max="30" required> <br>
+
+<br>
+<label for="size">What size is the animal?</label><br>
+  <input id="size" type="radio" name="size" value="S" required> Small<br>
+  <input id="size" type="radio" name="size" value="M"> Medium<br>
+  <input id="size" type="radio" name="size" value="L"> large<br>
+<br>
+<label for="animal">What type of animal?</label><br>
+  <input id="animal" type="radio" name="animal" value="dog" required> Dog<br>
+  <input id="animal" type="radio" name="animal" value="cat"> Cat<br>
+        <br>
+  <label for="breeds">What breed is the animal</label><br>
+  <input type="text" name="breeds" id="breeds" required pattern="[a-zA-Z]{2,15}" placeholder="Labrador">
+<br>
+<label for="media">Please add a photo of the animal.</label><br>
+<input type="url" name="media" id="media" required>
+<br>
+<label for="description">Please tell us about the pet up for adoption. </label><br>
+<input type="text" name="description" id="description" required><br>
+<br>
+<button type="sumbit" name="submit" id="submitpet" class="btn-primary btn">SUBMIT</button>
 </div>
 </form>
   

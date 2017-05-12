@@ -26,14 +26,6 @@ module.exports = function(sequelize, DataTypes) {
             values: ["s", "m", "l"],
             defaultValue: "s"
         },  
-        // medium: {
-        //     type: DataTypes.BOOLEAN,
-        //     defaultValue: false
-        // },
-        // small: {
-        //     type: DataTypes.BOOLEAN,
-        //     defaultValue: false
-        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -46,7 +38,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 isNumeric: true,
-             
             }
         }
         },

@@ -21,19 +21,14 @@ app.engine("handlebars",exphbs({
 
 app.set("view engine", "handlebars");
 
-// Handlebars.registerPartial("walkers", Handlebars.templates("walkers"))
 
-// not exactly sure if this is getting both routes..... 
-// but it's listening
 var routes = require("./controllers/pets_controllers.js");
-// var routes2 = require("./controllers/petwalker-sitter_controllers.js");
-app.use('/', routes); 
+var routes2 = require("./controllers/walker_controllers.js");
+var routes3 = require("./controllers/home_controllers.js");
 
 
+app.use('/', routes, routes2, routes3); 
 
-// app.listen(PORT, function() {
-// 	console.log("App listening on PORT: " + PORT);
-// });
 
 
 

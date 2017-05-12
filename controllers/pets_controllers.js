@@ -1,31 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
+var petfinder = require('pet-finder-api')('7810ae652b6934051e946af7af8cd39d', 'bfbcd5a247aa9c333a7b4b93e9ce395a');
 
 
-///////////////////////////////////////////////////////////////////////////////////////////
-  
-router.get("/", function(request, response) {
-
-  db.adoptablePets.findAll({}).then(function(result){
-
-    var adoptable = {
-      adoptablePets: result,
-      banner: "CURRENT LIST OF PETS UP FOR ADOPTION AT RBC"
-    };
-    response.render("index", adoptable);
-  });
-  
-});
-//////////////////////////////////////////////////////////////////////////////////////////
-router.get("/home", function(requeset, response){
-
-  response.render("home");
-});
-
-//////////////////////////////////////////////////////////////////////////////////////////
-router.get("/local", function(req, res) {
-
+/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////GET LIST OF DOGS AVAILABLE IN OUR SHELTER////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+router.get("/rbc_shelter", function(req, res) {
 
 db.adoptablePets.findAll({
 
@@ -37,7 +19,7 @@ db.adoptablePets.findAll({
 
       var adoptable = result;
 
-res.render("petdisplay.handlebars", {
+res.render("petdisplay", {
   animal: adoptable,
   banner: "OUR PETS",
   mylink: "/outside",
@@ -46,44 +28,16 @@ res.render("petdisplay.handlebars", {
 
   });
 });
-////////////////////////////////////////////////////////////////////////////////////////  
-router.get("/about", function(request, response){
-
-  response.render('about');
-})
-////////////////////////////////////////////////////////////////////////////////////////
-router.get("/contact", function(request, response){
-
-  response.render('contacts');
-
-})
 
 
-//////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////GET LIST OF DOGS AVAILABLE IN AREA///////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
-router.get("/outside", function(req, res) {
+router.get("/other_shelters", function(req, res) {
 
-
-// db.adoptablePets.findAll({}).then(function(result){
-//       var adoptable = result;
-// res.render("petdisplay.handlebars", {
-//   animal: adoptable,
-//   banner: "OTHER SHELTERS"
-
-// });
-//   });
-
-
-var petfinder = require('pet-finder-api')('7810ae652b6934051e946af7af8cd39d', 'bfbcd5a247aa9c333a7b4b93e9ce395a');
-// animal will need to be changed to request.body.animal to search for the right kind of pet
-// should this be in the models folder? 
-// should setup form with request.body.zipcode and request.body.animal to pass in the values for the search or
-// just the pet and hardcode in the zip for the shelter
 petfinder.findPet("08902", { animal: "dog" }, function(err, results) {
-  
-  // console.log(animal)
 
-//console.log(animal[1].media.photos[1].pn);
 var animal = [];
 var listCount = results.length
 for(i=0;i<listCount;i++) {
@@ -98,69 +52,18 @@ for(i=0;i<listCount;i++) {
   animal.push(Animals);
 }
 
-res.render("petdisplay.handlebars", {
+res.render("petdisplay", {
   animal: animal, 
   banner: "Other Shelters"
-    
-
+});
+});
 });
 
 
-});
+/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////ADD A PET TO OUR SHELTER FORM////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-});
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
-router.get("/walker", function(request, response){
-    db.dogWalker.findAll({
-      where: {
-        workingCurrently: true
-      }
-    }).then(function(result){
-
-    var walkers = {
-      dogWalker: result,
-      banner: "CURRENT LIST OF DOG WALKERS"
-    };
-    response.render("walker", walkers);
-  });
-
-});
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-router.get("/pastworker", function(request, response){
-    db.dogWalker.findAll({
-      where: {
-        workingCurrently: false
-      }
-    }).then(function(result){
-
-    var walkers = {
-      dogWalker: result,
-      banner: "LIST OF INACTIVE DOG WALKERS"
-    };
-    response.render("pastdogwalkers", walkers);
-  });
-
-});
-
-/////////////////////////////////////////////////////////////////////////////////////////////  
-
-router.get("/dogwalkerform", function(request, response){
-var display = {
-  banner: "ADD A DOG WALKER"
-};
-
-  response.render("dogwalkerform", display);
-})  
-/////////////////////////////////////////////////////////////////////////////////////////////
 
 router.get("/addpet", function(request, response){
 var display = {
@@ -169,39 +72,13 @@ var display = {
   response.render("addpet", display);
 })  
 
-////////////////////////////////////////////////////////////////////////////////////////////
-
-router.get("/assistance", function(request, response){
-
-  response.render("adopteeneedsawalker")
-})
 
 
-///////////////////////////////////////////////////////////////////////////////////////////
 
-router.post('/', function(request, response){
-
-db.dogWalker.create({
-    name: request.body.newwalker,
-    start: request.body.start,
-    endTime: request.body.endtime,
-    small: request.body.small,
-    medium: request.body.medium,
-    large: request.body.large,
-    email: request.body.email,
-    phone: request.body.phone
-  }).then(function(result){
-    response.redirect("/walker")
-  })
-
-})
-
-
-////////////////////////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////ADD A PET TO OUR SHELTER DATABASE /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 router.post('/addpet', function(request, response){
-
-
 
 db.adoptablePets.create({
     name: request.body.newpet,
@@ -214,39 +91,16 @@ db.adoptablePets.create({
     media: request.body.media,
     description: request.body.description
   }).then(function(result){
-    response.redirect("/")
+    response.redirect("/addpet")
   })
-
-
 })
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////
-
-
-router.put("/:id", function(request, response){
-
-
-db.dogWalker.update({
-workingCurrently: request.body.workingCurrently
-},
-
-{
-  where: {
-    id: request.params.id
-  }
-
-
-}).then(function(result){
-
-response.redirect("walker")
-
-})
-
-
-})
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-router.put("/", function(request, response){
+/////////////////UPDATE A PET IN OUR SHELTER DATABASE TO ADOPTED////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+router.put("/update_pet", function(request, response){
 
 
 db.adoptablePets.update({
@@ -260,78 +114,30 @@ db.adoptablePets.update({
 
 }).then(function(result){
 
-response.redirect("/")
+response.redirect("/pets_maintenance")
 
 })
 })
 
 
-////////////////////////////////////////////////////////
-
-
-
-router.get("/hi", function(request, response){
-  console.log('hit hi route');
-
-  var sizeArray = [];
-
-  if(request.query.size === "l"){
-    sizeArray.push("l");
-  };
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////GETS A LIST OF ALL OUR PETS AVAILABLE FOR ADOPTION/////////////////
+///////////////////////////////////////////////////////////////////////////////////
   
-  if(request.query.size === "m"){
-    sizeArray.push("l");
-    sizeArray.push("m");
-  };
-  
-  if(request.query.size === "s"){
-    sizeArray.push("s");
-    sizeArray.push("m");
-    sizeArray.push("l");
-  };
-console.log(sizeArray);
+router.get("/pets_maintenance", function(request, response) {
 
-  
+  db.adoptablePets.findAll({}).then(function(result){
 
-    db.dogWalker.findAll({
-      where: {
-        workingCurrently: true, 
-        start: {
-          $lte: request.query.time
-        },
-        endTime: {
-          $gte: request.query.time
-        },
-          largestDogWillingToWalk: {
-          $in: sizeArray
-        }
-        }
-        
-      
-    }).then(function(result){
-
-    var walkers = {
-      dogWalker: result,
-      banner: "CURRENT LIST OF DOG WALKERS AVAILABLE"
+    var adoptable = {
+      adoptablePets: result,
+      banner: "CURRENT LIST OF PETS UP FOR ADOPTION AT RBC"
     };
-
-response.render("availwalker", walkers);
-     });
-
+    response.render("index", adoptable);
+  });
+  
 });
 
 
 
-
-
-// router.get('/availwalker', function(request, response){
-
-
-
-
-// })
-
-
-
-
+//////exports router//////
 module.exports = router;

@@ -1,7 +1,7 @@
 {{#each adoptablePets}}
 {{#unless this.adopted}}
 
-<form id="petAdopted" class="create-update-form" action="/?_method=PUT" method="POST">
+<form id="petAdopted" class="create-update-form" action="/update_pet?_method=PUT" method="POST">
 <li>
 <input type="hidden" name="adopted" value="true">
 {{this.id}}. ({{this.name}}  | {{this.animal}})

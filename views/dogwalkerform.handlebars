@@ -1,15 +1,17 @@
 
 
 <form id="addwalker" class="create-update-form" action="/" method="POST">
+
+	
 <div class="form-group">
 <label for="newwalker">What is your name?</label>
-<input type="text" name="newwalker" id="newwalkername"> <br>
+<input type="text" name="newwalker" id="newwalkername" required placeholder="e.g. BOB"> <br>
 
 <label for="starttime">What time can you start?</label>
-<input type="number" name="start" id="newwalkerstart" min="00" max="24"> <br>
+<input type="number" name="start" id="newwalkerstart" min="00" max="24" required> <br>
 
 <label for="endtime">Til what time?</label>
-<input type="number" name="endtime" id="newwalkerendtime" min="00" max="24"> <br>
+<input type="number" name="endtime" id="newwalkerendtime" min="00" max="24" required> <br>
 
 
 <label for="size">What is the largest size dog you're comfortable walking?</label><br>
@@ -18,10 +20,10 @@
   <input type="radio" name="size" value="l"> large<br>
 
 <label for="email">Please give your email address</label>
-<input type="email" name="email" id="newwalkeremail"><br>
+<input type="email" name="email" id="newwalkeremail" required placeholder="JohnDoe@abc.com"><br>
 
 <label for="phone">Phone Number:</label>
-<input type="tel" name="phone" id="newwalkerphone"><br>
+<input type="tel" name="phone" id="newwalkerphone" required pattern="\d{3}\d{3}\d{4}" placeholder="Phone# e.g. 123 123 1234"><br>
 
 <button type="sumbit" name="submit" id="submit" class="btn-primary btn">SUBMIT</button>
 </div>
