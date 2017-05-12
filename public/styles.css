@@ -76,6 +76,10 @@ h2 #adoptHeading {
     padding: 2.5rem 0;
 }
 
+#whiteText{
+    color: white;
+}
+
 /*Dog Walker Pic
 ===================================================================================*/
 .dogWalkerPic{
@@ -87,11 +91,12 @@ h2 #adoptHeading {
 
 img {
     height:20%; 
-   width: 39%;
+   width: 85%;
 }
 
 #logo{
     width: 10%;
+    border-radius: 60px;
 }
 /*=====================================================================================*/
 /*Nav Bar
