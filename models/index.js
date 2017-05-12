@@ -9,7 +9,7 @@ var env       = process.env.NODE_ENV || 'development';
 // var config    = require(__dirname + '\\..\\config\\config.json')[env]; this is the one that worked locally
 // var config    = requi  re(__dirname + '..\\config/config.json')[env];
 // var config    = require(__dirname + '/../config/config.json')[env];
-config = require('../config/config');
+var config = require('../config/config');
 
 
 
