@@ -164,7 +164,7 @@ var display = {
 
 router.get("/addpet", function(request, response){
 var display = {
-  banner: "ADD A NEW PET THAT IS UP FOR ADOPTION"
+  banner: "ADD A NEW PET UP FOR ADOPTION"
 };
   response.render("addpet", display);
 })  
