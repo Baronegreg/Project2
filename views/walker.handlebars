@@ -3,12 +3,16 @@
 
 
 
-<div> 
+<div id="walkerdiv"> 
 
 <form id="updateWalker" class="create-update-form" action="/{{this.id}}?_method=PUT" method="POST">
-{{this.id}}. {{this.name}} - Willing to walk up to ({{this.largestDogWillingToWalk}}) sized dogs.
+<!-- <li id="dogwalkerline"> -->
+ <!-- <span> {{this.id}}. {{this.name}} - Willing to walk up to ({{this.largestDogWillingToWalk}}) sized dogs.</span> -->
 <input type="hidden" name="workingCurrently" value="false">
-<input type="submit" name="submit" id="submit" class="btn-primary btn" value="Take {{this.name}} off our current work schedule">
+<!-- <span> -->
+ <input type="submit" name="submit" id="submitdogwalker" class="btn-primary btn" value="Take {{this.name}} off our current work schedule">
+ <!-- </span> -->
+<!-- </li> -->
 </form>
 
 

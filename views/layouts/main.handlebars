@@ -51,7 +51,19 @@
                 </li>
 
                 <li class="nav-item">
-                    <button type="button" class="btn btn-primary" id="b1"><a href="/rbc_shelter">Pets up for Adoption</a></button>
+                    <!-- <button type="button" class="btn btn-primary" id="b1"><a href="/rbc_shelter">Pets up for Adoption</a></button> -->
+                        <li class="nav-item">
+                     <div class="dropdown">
+                        <button class="btn btn-primary" type="button" data-toggle="dropdown">Pets up for Adoption @RBC
+                         <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <input type="hidden" name="all">
+                            <li><a href="/rbc_shelter" name="all" id="whiteText">All</a></li>
+                            <li><a href="/rbc_shelter/dog" id="whiteText">Dogs</a></li>
+                            <li><a href="/rbc_shelter/cat" id="whiteText" name="cat">Cats</a></li>
+                        </ul>
+                    </div>
+                </li>  
                 </li>
 
 <!-- 
@@ -97,26 +109,7 @@
     <h2>{{banner}} </h2>
         {{{ body }}}
             <footer id="footer-main">
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <ul class="list-unstyled">
-                        <li><a href="/home">home</a></li>
-                        <li><a href="#what-we-do">what we do</a></li>
-                        <li><a href="/about">about</a></li>
-                        <li><a href="/contact">contact us</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/">facebook</a></li>
-                        <li><a href="https://twitter.com/?lang=en">twitter</a></li>
-                        <li><a href="https://www.youtube.com/">youtube</a></li>
-                        <li><a href="https://www.linkedin.com/">linkedin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
+
         <div class="row">
             <div class="col-sm-12">
                     <center>

@@ -2,12 +2,14 @@
 {{#unless this.adopted}}
 
 <form id="petAdopted" class="create-update-form" action="/update_pet?_method=PUT" method="POST">
-<li>
+<!-- <li> -->
 <input type="hidden" name="adopted" value="true">
-{{this.id}}. ({{this.name}}  | {{this.animal}})
+<!-- {{this.id}}. ({{this.name}}  | {{this.animal}}) -->
 <input type='hidden' name="this" value="{{this.id}}">
-<input type="submit" name="submit" id="submit" class="btn-primary btn" value="Click when {{this.name}} is ADOPTED">
-</li><br>
+<input type="submit" name="submit" id="submitadoption" class="btn-primary btn" value="Click when {{this.name}} the {{this.animal}} is ADOPTED">
+<!-- </li> -->
+<br>
+<br>
 </form>
 
 {{/unless}}

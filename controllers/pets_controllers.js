@@ -7,12 +7,65 @@ var petfinder = require('pet-finder-api')('7810ae652b6934051e946af7af8cd39d', 'b
 /////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////GET LIST OF DOGS AVAILABLE IN OUR SHELTER////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
-router.get("/rbc_shelter", function(req, res) {
 
+router.get("/rbc_shelter", function(req, res) {
+console.log(req.body);
+console.log(req.params);
+console.log(req.query);
 db.adoptablePets.findAll({
 
   where: {
     adopted: false
+  }
+}).then(function(result){
+
+
+      var adoptable = result;
+
+res.render("petdisplay", {
+  animal: adoptable,
+  banner: "OUR PETS",
+  mylink: "/outside",
+  words: "Not finding the pet you want please click here and we'll show you some pets available in the area!" 
+});
+
+  });
+});
+
+
+
+
+
+router.get("/rbc_shelter/dog", function(req, res) {
+console.log(req.body);
+db.adoptablePets.findAll({
+
+  where: {
+    adopted: false,
+    animal: "dog"
+  }
+}).then(function(result){
+
+
+      var adoptable = result;
+
+res.render("petdisplay", {
+  animal: adoptable,
+  banner: "OUR PETS",
+  mylink: "/outside",
+  words: "Not finding the pet you want please click here and we'll show you some pets available in the area!" 
+});
+
+  });
+});
+
+router.get("/rbc_shelter/cat", function(req, res) {
+console.log(req.body);
+db.adoptablePets.findAll({
+
+  where: {
+    adopted: false,
+    animal: "cat"
   }
 }).then(function(result){
 
@@ -46,6 +99,7 @@ for(i=0;i<listCount;i++) {
     media: results[i].media.photos[1].pn,
     animal: results[i].animal,
     breeds: results[i].breeds,
+    age: results[i].age,
     sex: results[i].sex,
     description: results[i].description
   }
@@ -67,7 +121,7 @@ res.render("petdisplay", {
 
 router.get("/addpet", function(request, response){
 var display = {
-  banner: "ADD A NEW PET THAT IS UP FOR ADOPTION"
+  banner: 'ADD A NEW PET THAT IS UP FOR ADOPTION'
 };
   response.render("addpet", display);
 })  
@@ -153,6 +207,7 @@ for(i=0;i<listCount;i++) {
     media: results[i].media.photos[1].pn,
     animal: results[i].animal,
     breeds: results[i].breeds,
+    age: results[i].age,
     sex: results[i].sex,
     description: results[i].description
   }
@@ -180,6 +235,7 @@ for(i=0;i<listCount;i++) {
     media: results[i].media.photos[1].pn,
     animal: results[i].animal,
     breeds: results[i].breeds,
+    age: results[i].age,
     sex: results[i].sex,
     description: results[i].description
   }
@@ -207,6 +263,7 @@ for(i=0;i<listCount;i++) {
     media: results[i].media.photos[1].pn,
     animal: results[i].animal,
     breeds: results[i].breeds,
+    age: results[i].age,
     sex: results[i].sex,
     description: results[i].description
   }
@@ -234,6 +291,7 @@ for(i=0;i<listCount;i++) {
     media: results[i].media.photos[1].pn,
     animal: results[i].animal,
     breeds: results[i].breeds,
+    age: results[i].age,
     sex: results[i].sex,
     description: results[i].description
   }
