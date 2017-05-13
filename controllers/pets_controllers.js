@@ -36,8 +36,8 @@ res.render("petdisplay", {
 
 
 
-router.get("/rbc_shelter/dog", function(req, res) {
-console.log(req.body);
+router.get("/rbc_shelterdog", function(req, res) {
+
 db.adoptablePets.findAll({
 
   where: {
@@ -59,7 +59,7 @@ res.render("petdisplay", {
   });
 });
 
-router.get("/rbc_shelter/cat", function(req, res) {
+router.get("/rbc_sheltercat", function(req, res) {
 console.log(req.body);
 db.adoptablePets.findAll({
 
