@@ -120,27 +120,15 @@ img {
     /*border-radius: 45px;*/
 }
 
-#whiteText{
-    /*color: white;*/
-}
-
 
 #dogwalkerline {
     width: 60%;
 }
 
 #submitdogwalker {
-    /*float: right;*/
-    /*margin: 0 auto;*/
     width: 50%;
     text-transform: uppercase;
 }
-
-#walkerdiv {
-    /*background-color: grey;*/
-}
-
-
 
 #submitadoption {
     text-transform: uppercase;
