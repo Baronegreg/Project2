@@ -23,6 +23,7 @@
     "lodash": "^4.17.4",
     "method-override": "^2.3.8",
     "mysql": "^2.13.0",
+    "node": "^9.9.0",
     "nodemon": "^1.11.0",
     "pet-finder-api": "^1.0.1",
     "sequelize": "^3.30.4"
